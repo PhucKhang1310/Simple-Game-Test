@@ -1,0 +1,47 @@
+.footer {
+    background-color: rgb(121, 120, 120);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    height: 145px;
+    width: 100%;
+    position: static;
+    bottom: 0;
+}
+
+.footer-text {
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    margin: 10px;
+}
+
+.map {
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+    align-self: center;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+    object-fit: cover;
+;
+}
+
+.map:hover {
+    transform: scale(1.25);
+}
+
+@media screen and (max-width: 575px){
+    .footer{
+        flex-direction: column;
+        height: auto;
+        align-items: flex-start;
+        text-align: left;
+        padding: 20px 0;
+    }
+
+    .map{
+        align-self: start;
+        margin-left: 20px;
+    }
+}

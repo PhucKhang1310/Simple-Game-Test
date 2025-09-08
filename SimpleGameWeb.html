@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Game</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/slideshow.css">  
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/overlay.css">
+    <link rel="stylesheet" href="css/game-info.css">
+</head>
+<body>
+    <div id="overlay" onclick="overlayOff()">
+        <div id="overlay-video" onclick="event.stopPropagation()">
+            <video controls>
+                <source src="media/Video1.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="header">
+        <div>
+            <img src="media/Avatar.png" alt="avatar" class="user-avatar">
+        </div>
+        <h1 class="username">
+            Placeholder
+        </h1>
+    </div>
+    <div class="content">
+        <div class="container">
+            <div id="slideshow-container"></div>
+
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+            
+            <div class="row" id="thumbnail-container">
+
+            </div>
+        </div>
+        <div class="game-info">
+            <div class="info-container">
+                <h2 class="info-title">Giới thiệu trò chơi</h2>
+                <p class="info-description">
+                    No Man’s Sky là một tựa game sinh tồn và khám phá thế giới mở quy mô vũ trụ, được phát triển bởi Hello Games. Ra mắt lần đầu vào năm 2016, trò chơi đưa người chơi vào một thiên hà gần như vô tận với hơn 18 tỷ tỷ hành tinh được tạo ra một cách ngẫu nhiên—mỗi hành tinh đều có cảnh quan, hệ sinh thái, thời tiết và sinh vật riêng biệt.
+                    
+                    Bạn bắt đầu hành trình với tư cách là một nhà du hành cô độc, mắc kẹt trên một hành tinh xa lạ với con tàu hư hỏng và thiết bị tối thiểu. Từ giây phút đầu tiên, sinh tồn là ưu tiên hàng đầu—bạn sẽ thu thập tài nguyên, sửa chữa tàu, khám phá công nghệ, học ngôn ngữ của các loài ngoài hành tinh và chuẩn bị để bay ra vũ trụ rộng lớn.
+                    
+                    Nhưng khám phá chỉ là khởi đầu. Bạn sẽ làm gì trong vũ trụ bao la này?
+                    
+                    Ghi dấu bản thân bằng cách phát hiện và đặt tên những hành tinh mới?
+
+                    Trở thành một thương nhân liên hành tinh giàu có?
+
+                    Giải mã những bí ẩn xoay quanh thực thể cổ đại mang tên Atlas?
+
+                    Hay sinh tồn trên những hành tinh khắc nghiệt và đầy nguy hiểm?
+                    
+                    Kể từ lần ra mắt đầy tranh cãi, No Man's Sky đã có một trong những hành trình “lội ngược dòng” ấn tượng nhất trong lịch sử game. Với hàng loạt bản cập nhật miễn phí qua nhiều năm, trò chơi giờ đây đã có chế độ multiplayer, xây dựng căn cứ, chiến đấu không gian, khám phá dưới nước, hỗ trợ VR và thậm chí cả những con tàu sống—biến No Man's Sky trở thành một sandbox khoa học viễn tưởng phong phú và sống động.
+                    
+                    Dù bạn muốn một mình khám phá dải ngân hà hay đồng hành cùng bạn bè trong những chuyến phiêu lưu xuyên thiên hà, No Man's Sky sẽ luôn chào đón bạn đến với một vũ trụ không giới hạn.
+                </p>
+                <div class="info-link-container">
+                    <a href="#" class="info-link">Hình ảnh thương hiệu</a>
+                    <a href="#" class="info-link">Tìm hiểu thêm</a>
+                </div>
+            </div>
+            <div class="info-container">
+                <h2 class="info-title">Yêu cầu phần mềm</h2>
+                <p class="info-description">
+                    - Yêu cầu hệ điều hành và CPU sử dụng kiến trúc 64-bit
+                    <br>
+                    - HĐH: Windows 10/11 (phiên bản 64-bit)
+                    <br>
+                    - CPU: Intel Core i3
+                    <br>
+                    - RAM: 8 GB
+                    <br>
+                    - Đồ họa: Nvidia GeForce GTX 1060 (3 GB) hoặc AMD Radeon RX 470 (4 GB) hoặc Intel UHD Graphics 630
+                    <br>
+                    - Lưu trữ: 15 GB trống
+                    <br>    
+                    - Hỗ trợ VR: SteamVR
+                </p>
+            </div>
+        </div>
+        <div class="button-container">
+            <button class="trailer-button" onclick="overlayOn()">Trailer</button>
+        </div>
+    </div>
+    <div class="footer">
+        <a class="footer-text">
+            example@example.com
+            <br>
+            <br>
+            0123456789
+        </a>
+        <a class="footer-text">
+            Ho Chi Minh City
+        </a>
+        <img src="media/Maps.jpg" alt="map" class="map">
+    </div>
+    <script src="main.js"></script>
+</body> 
