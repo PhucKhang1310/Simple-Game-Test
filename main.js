@@ -8,7 +8,7 @@ const images = [
     { src: "Image6.jpg", alt: "Image 6" }
 ];
 
-let slideIndex = 1;
+let slideIndex = 0;
 let slideTimer;
 
 function generateSlideshow() {
@@ -27,7 +27,7 @@ function generateSlideshow() {
         const columnDiv = document.createElement('div');
         columnDiv.className = 'column';
         columnDiv.innerHTML = `
-            <img class="thumbnail" src="media/${image.src}" onclick="currentSlide(${index + 1})" alt="${image.alt}">
+            <img class="thumbnail" src="media/${image.src}" onclick="currentSlide(${index})" alt="${image.alt}">
         `;
         thumbnailContainer.appendChild(columnDiv);
     });
@@ -56,19 +56,14 @@ function showSlide(n) {
     let slides = document.getElementsByClassName("slideshow-display");
     let thumbnails = document.getElementsByClassName("thumbnail");
     
-    if (n > images.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = images.length }
+    if (n > images.length - 1) { slideIndex = 0 }
+    if (n < 0) { slideIndex = images.length - 1}
     
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
+    Array.from(slides).forEach(slide => slide.style.display = "none");
+    Array.from(thumbnails).forEach(thumbnail => thumbnail.classList.remove("active"));
     
-    for (let i = 0; i < thumbnails.length; i++) {
-        thumbnails[i].classList.remove("active");
-    }
-    
-    slides[slideIndex - 1].style.display = "block";
-    thumbnails[slideIndex - 1].classList.add("active");
+    slides[slideIndex].style.display = "block";
+    thumbnails[slideIndex].classList.add("active");
 }
 
 function overlayOn() {
