@@ -9,7 +9,6 @@ const images = [
 ];
 
 let slideIndex = 0;
-let previousSlide = 0;
 let slideTimer;
 const overlay = document.getElementById("overlay");
 const slides = document.getElementsByClassName("slideshow-display");
@@ -38,39 +37,45 @@ function generateSlideshow() {
   });
 }
 
-function changeSlide(n) {
+function changeSlide(newIndex) {
   clearInterval(slideTimer);
-  showSlide((slideIndex += n));
+  hideSlide(slideIndex);
+  showSlide((slideIndex = newIndex));
   startAutoSlide();
 }
 
-function currentSlide(n) {
+function currentSlide(newIndex) {
   clearInterval(slideTimer);
-  showSlide((slideIndex = n));
+  hideSlide(slideIndex);
+  showSlide((slideIndex = newIndex));
   startAutoSlide();
 }
 
 function startAutoSlide() {
   slideTimer = setInterval(() => {
+    hideSlide(slideIndex);
     slideIndex++;
     showSlide(slideIndex);
   }, 5000);
 }
 
-function showSlide(n) {
-  slides[previousSlide].style.display = "none";
-  thumbnails[previousSlide].classList.remove("active");
-
-  if (n > images.length - 1) {
-    slideIndex = 0;
+function showSlide(newIndex) {
+  if (newIndex > images.length - 1) {
+    newIndex = 0;
   }
-  if (n < 0) {
-    slideIndex = images.length - 1;
+  if (newIndex < 0) {
+    newIndex = images.length - 1;
   }
 
-  slides[slideIndex].style.display = "block";
-  thumbnails[slideIndex].classList.add("active");
-  previousSlide = slideIndex;
+  slides[newIndex].style.display = "block";
+  thumbnails[newIndex].classList.add("active");
+
+  slideIndex = newIndex;
+}
+
+function hideSlide(previousIndex){
+  slides[previousIndex].style.display = "none";
+  thumbnails[previousIndex].classList.remove("active");
 }
 
 function overlayOn() {
