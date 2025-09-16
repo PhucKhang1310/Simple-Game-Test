@@ -40,7 +40,7 @@ function generateSlideshow() {
 function changeSlide(newIndex) {
   clearInterval(slideTimer);
   hideSlide(slideIndex);
-  showSlide((slideIndex = newIndex));
+  showSlide((slideIndex += newIndex));
   startAutoSlide();
 }
 
