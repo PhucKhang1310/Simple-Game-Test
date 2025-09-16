@@ -4,11 +4,15 @@
 }
 
 .slideshow-display{
-    display: flex;
+    display: none;
     animation-name: fade;
     animation-duration: 1.5s;
     justify-content: center;
     align-items: center;
+}
+
+.slideshow-display .active{
+    display: flex;
 }
 
 .slideshow-image{
