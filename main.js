@@ -9,6 +9,7 @@ const images = [
 ];
 
 let slideIndex = 0;
+let previousSlide = 0;
 let slideTimer;
 const overlay = document.getElementById("overlay");
 const slides = document.getElementsByClassName("slideshow-display");
@@ -57,13 +58,9 @@ function startAutoSlide() {
 }
 
 function showSlide(n) {
-  let previousSlide = slideIndex - 1;
-  if (previousSlide < 0) {
-    previousSlide = images.length - 1;
-  }
   slides[previousSlide].style.display = "none";
   thumbnails[previousSlide].classList.remove("active");
-  
+
   if (n > images.length - 1) {
     slideIndex = 0;
   }
@@ -73,6 +70,7 @@ function showSlide(n) {
 
   slides[slideIndex].style.display = "block";
   thumbnails[slideIndex].classList.add("active");
+  previousSlide = slideIndex;
 }
 
 function overlayOn() {
