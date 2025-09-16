@@ -55,8 +55,8 @@ function startAutoSlide() {
 }
 
 function showSlide(n) {
-  let slides = document.getElementsByClassName("slideshow-display");
-  let thumbnails = document.getElementsByClassName("thumbnail");
+  const slides = document.getElementsByClassName("slideshow-display");
+  const thumbnails = document.getElementsByClassName("thumbnail");
 
   if (n > images.length - 1) {
     slideIndex = 0;
@@ -73,13 +73,15 @@ function showSlide(n) {
 }
 
 function overlayOn() {
-  document.getElementById("overlay").style.display = "flex";
-  document.getElementById("overlay").style.alignItems = "center";
-  document.getElementById("overlay").style.justifyContent = "center";
+  const overlay = document.getElementById("overlay");
+  overlay.style.display = "flex";
+  overlay.style.alignItems = "center";
+  overlay.style.justifyContent = "center";
 }
 
 function overlayOff() {
-  document.getElementById("overlay").style.display = "none";
+  const overlay = document.getElementById("overlay");
+  overlay.style.display = "none";
 }
 
 document.addEventListener("DOMContentLoaded", function () {
