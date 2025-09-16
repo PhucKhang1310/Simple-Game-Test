@@ -37,45 +37,38 @@ function generateSlideshow() {
   });
 }
 
-function changeSlide(newIndex) {
+function changeSlide(increment) {
   clearInterval(slideTimer);
-  hideSlide(slideIndex);
-  showSlide((slideIndex += newIndex));
+  showSlide(slideIndex + increment);
   startAutoSlide();
 }
 
 function currentSlide(newIndex) {
   clearInterval(slideTimer);
-  hideSlide(slideIndex);
-  showSlide((slideIndex = newIndex));
+  showSlide(newIndex);
   startAutoSlide();
 }
 
 function startAutoSlide() {
   slideTimer = setInterval(() => {
-    hideSlide(slideIndex);
-    slideIndex++;
-    showSlide(slideIndex);
+    showSlide(slideIndex+1);
   }, 5000);
 }
 
 function showSlide(newIndex) {
-  if (newIndex > images.length - 1) {
+  if (newIndex >= slides.length) {
     newIndex = 0;
   }
   if (newIndex < 0) {
-    newIndex = images.length - 1;
+    newIndex = slides.length - 1;
   }
 
-  slides[newIndex].style.display = "block";
-  thumbnails[newIndex].classList.add("active");
+  slides[slideIndex].style.display = "none";
+  thumbnails[slideIndex].classList.remove("active");
 
   slideIndex = newIndex;
-}
-
-function hideSlide(previousIndex){
-  slides[previousIndex].style.display = "none";
-  thumbnails[previousIndex].classList.remove("active");
+  slides[slideIndex].style.display = "block";
+  thumbnails[slideIndex].classList.add("active");
 }
 
 function overlayOn() {
