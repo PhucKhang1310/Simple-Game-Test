@@ -10,11 +10,13 @@ const images = [
 
 let slideIndex = 0;
 let slideTimer;
+const overlay = document.getElementById("overlay");
+const slides = document.getElementsByClassName("slideshow-display");
+const thumbnails = document.getElementsByClassName("thumbnail");
+const slideshowContainer = document.getElementById("slideshow-container");
+const thumbnailContainer = document.getElementById("thumbnail-container");
 
 function generateSlideshow() {
-  const slideshowContainer = document.getElementById("slideshow-container");
-  const thumbnailContainer = document.getElementById("thumbnail-container");
-
   images.forEach((image, index) => {
     const slideDiv = document.createElement("div");
     slideDiv.className = "slideshow-display";
@@ -55,9 +57,6 @@ function startAutoSlide() {
 }
 
 function showSlide(n) {
-  const slides = document.getElementsByClassName("slideshow-display");
-  const thumbnails = document.getElementsByClassName("thumbnail");
-
   if (n > images.length - 1) {
     slideIndex = 0;
   }
@@ -73,14 +72,12 @@ function showSlide(n) {
 }
 
 function overlayOn() {
-  const overlay = document.getElementById("overlay");
   overlay.style.display = "flex";
   overlay.style.alignItems = "center";
   overlay.style.justifyContent = "center";
 }
 
 function overlayOff() {
-  const overlay = document.getElementById("overlay");
   overlay.style.display = "none";
 }
 
